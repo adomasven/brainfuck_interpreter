@@ -2,7 +2,7 @@ Brainfuck Interpreter
 =====================
 One of my maths lecturers at Bristol University set us a task to answer what
 is the sequence:
->+++++[<++>-]<+++ >++++[>+++<-]>[<++++>-] 
+\>+++++[<++>-]<+++ >++++[>+++<-]>[<++++>-] 
 <.+< . >. < . >-> >
 +++++>+< [ >[> >+>+< < <-] > > >[< < <+> > >-]< < < >[<+>-]
 < < < <[>+> > > > >+< < < < < <-] >[<+>-] > >
