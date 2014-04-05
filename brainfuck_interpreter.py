@@ -22,7 +22,6 @@ import sys
 import re
 
 
-
 class BrainfuckInterpreter(object):
     commands = {
         '>': 'next',
@@ -54,7 +53,7 @@ class BrainfuckInterpreter(object):
 
     def jnz(self):
         brackCount = 0
-        if(self.memory[self.mem_ptr] == 0):
+        if self.memory[self.mem_ptr] == 0:
             self.ptr += 1
             while(self.code[self.ptr] != ']' or brackCount != 0):
                 if(self.code[self.ptr] == '['): brackCount -= 1
@@ -63,7 +62,7 @@ class BrainfuckInterpreter(object):
 
     def ctz(self):
         brackCount = 0
-        if(self.memory[self.mem_ptr] != 0):
+        if self.memory[self.mem_ptr] != 0:
             self.ptr -= 1
             while(self.code[self.ptr] != '[' or brackCount != 0):
                 if(self.code[self.ptr] == '['): brackCount += 1
@@ -71,7 +70,6 @@ class BrainfuckInterpreter(object):
                 self.ptr -= 1
 
     def prt(self):
-        # print self.memory[self.mem_ptr]
         print chr(self.memory[self.mem_ptr])
 
     def interpret(self):
@@ -82,8 +80,11 @@ class BrainfuckInterpreter(object):
                 method()
             self.ptr += 1
 
+
 if __name__ == '__main__':
-    if(len(sys.argv) > 2): 
+    if len(sys.argv) == 0:
+        print "Usage: ./brainfuck_interpreter <brainfuck code> [memory size]"
+    if len(sys.argv) > 2: 
         interpreter = BrainfuckInterpreter(sys.argv[1], sys.argv[2])
     else:
         interpreter = BrainfuckInterpreter(sys.argv[1])
